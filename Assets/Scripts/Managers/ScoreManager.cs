@@ -8,10 +8,15 @@ public class ScoreManager : MonoBehaviour
 
 
     [SerializeField] GameEventSO gameEventSO;
+    [SerializeField] GameEventSO OnScoreUpdatedSO;
 
     private void Start()
     {
         score = 0;
+        
+    }
+    private void OnEnable()
+    {
         gameEventSO.OnEvent += UpdateScore;
     }
 
@@ -23,6 +28,6 @@ public class ScoreManager : MonoBehaviour
     private void UpdateScore()
     {
         score += 1;
-        Debug.Log(score);
+        OnScoreUpdatedSO.TriggerEvent();
     }
 }
