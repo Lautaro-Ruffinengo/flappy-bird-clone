@@ -4,8 +4,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    private InputActionReference jumpAction;
+    public event EventHandler OnDead;
+
+    [SerializeField] private InputActionReference jumpAction;
 
     [SerializeField] private GameConfigSO GameConfigSO;
     
@@ -30,10 +31,14 @@ public class PlayerMovement : MonoBehaviour
     private void Jump(InputAction.CallbackContext context)
     {
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, GameConfigSO.jumpForce);
-        Debug.Log("Jumping!");
     }
-    void OnCollisionEnter2D(Collision2D col)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Colision con: " + col.gameObject.name);
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            OnDead?.Invoke(this, EventArgs.Empty);
+        }
     }
+
 }

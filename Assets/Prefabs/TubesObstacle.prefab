@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4512827883162859203}
   m_Layer: 0
   m_Name: TubesObstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,6 +59,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6351819783289951407}
   - component: {fileID: 6481068266501039134}
+  - component: {fileID: 7994122189079103847}
   m_Layer: 0
   m_Name: ScoreCollider
   m_TagString: Untagged
@@ -111,7 +112,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -127,6 +128,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.610916, y: 5.531685}
   m_EdgeRadius: 0
+--- !u!114 &7994122189079103847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364599300546912914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2606fcc85c8a66a4a884b2324c4519ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreCollider
+  gameEventSO: {fileID: 11400000, guid: 9eb8c544c4f0d554e9e25b3259d878cf, type: 2}
 --- !u!1 &6422040532700146904
 GameObject:
   m_ObjectHideFlags: 0
