@@ -12,10 +12,15 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         score = 0;
-        gameEventSO.OnPointScored += UpdateScore;
+        gameEventSO.OnEvent += UpdateScore;
     }
 
-    private void UpdateScore(object sender, EventArgs e)
+    private void OnDisable()
+    {
+        gameEventSO.OnEvent -= UpdateScore;
+    }
+
+    private void UpdateScore()
     {
         score += 1;
         Debug.Log(score);

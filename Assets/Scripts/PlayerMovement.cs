@@ -4,11 +4,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public event EventHandler OnDead;
-
     [SerializeField] private InputActionReference jumpAction;
 
     [SerializeField] private GameConfigSO GameConfigSO;
+    [SerializeField] private GameEventSO OnPlayerDiedSO;
     
 
     private Rigidbody2D _rb;
@@ -37,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            OnDead?.Invoke(this, EventArgs.Empty);
+            OnPlayerDiedSO.TriggerEvent();
         }
     }
 
