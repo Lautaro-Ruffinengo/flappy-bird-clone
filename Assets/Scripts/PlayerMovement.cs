@@ -29,7 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        _rb.linearVelocityY = GameConfigSO.jumpForce;
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, GameConfigSO.jumpForce);
         Debug.Log("Jumping!");
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Colision con: " + col.gameObject.name);
     }
 }

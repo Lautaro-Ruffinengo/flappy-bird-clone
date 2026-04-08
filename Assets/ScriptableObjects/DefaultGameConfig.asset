@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8089d0285981a4486a78d2e1c16369, type: 3}
   m_Name: DefaultGameConfig
   m_EditorClassIdentifier: Assembly-CSharp::GameConfigSO
-  jumpForce: 0
+  jumpForce: 10
+  tubesMovementSpeed: 5
+  spawningSpeed: 2
+  minSpawnY: -2.5
+  maxSpawnY: 2.5
