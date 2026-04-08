@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private InputActionReference jumpAction;
 
-    [SerializeField] private float jumpForce;
+    [SerializeField] private GameConfigSO GameConfigSO;
     
 
     private Rigidbody2D _rb;
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        _rb.linearVelocityY = jumpForce;
+        _rb.linearVelocityY = GameConfigSO.jumpForce;
         Debug.Log("Jumping!");
     }
 }
